@@ -1,13 +1,14 @@
 PlanetPixel
 ===========
 
-**A quicklook tool for single-position time series data using the Planet API.**
+**A simple API for retrieving time series color data using the Planet API.**
 
 Usage
 -----
 
 .. code-block:: python
 
+  from planetpixel import PlanetPixel
   PlanetPixel(lon, lat).plot()
 
 Pre-requisites
