@@ -1,7 +1,7 @@
 PlanetPixel
 ===========
 
-A quicklook tool for single-pixel time series data using the Planet Labs API.
+**A quicklook tool for single-position time series data using the Planet API.**
 
 Usage
 -----
