@@ -9,12 +9,10 @@ Example
 -------
 *PlanetPixel* makes it fun and easy to plot the color of a single position on Earth as a function of time.  For example, you can use it to measure when Matthes lake in Yosemite froze in the winter of 2017:
 
-|pic1| |pic2|
-
-.. |pic1| image:: https://github.com/barentsen/planetpixel/blob/master/demo/lake1.png
-   :width: 40%
-.. |pic2| image:: https://github.com/barentsen/planetpixel/blob/master/demo/lake2.png
-   :width: 40%
+.. image:: https://github.com/barentsen/planetpixel/blob/master/demo/lake1.png
+   :width: 30%
+.. image:: https://github.com/barentsen/planetpixel/blob/master/demo/lake2.png
+   :width: 30%
 
 We can study this in a quantitative way as follows:
 
