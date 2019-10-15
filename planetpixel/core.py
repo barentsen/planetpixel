@@ -1,19 +1,23 @@
-import os
+"""Defines the PlanetPixel class."""
 import math
+from datetime import datetime
 from requests.auth import HTTPBasicAuth
 
-from planet import api
 import matplotlib.pyplot as pl
 import numpy as np
+import seaborn as sns
+import matplotlib.dates as mdates
 
-from . import orders
-from . import PL_API_KEY
+from planet import api
+from gdal import Open
+
+from . import orders, PL_API_KEY
 
 
 PLANET_BANDS = {'blue': 1, 'green': 2, 'red': 3, 'nir': 4}
 
 
-def get_median(data, band):
+def get_median(data, band='blue'):
     """Returns the median of a band in a Planet GeoTIFF."""
     band_idx = PLANET_BANDS[band]
     dn = data.GetRasterBand(band_idx).ReadAsArray()
@@ -89,11 +93,11 @@ class PlanetPixel():
 
     Give longitude and latitude in degrees.
     """
-    def __init__(self, longitude, latitude, start="2017-10-15T00:00:00.000Z",
+    def __init__(self, lon, lat, start="2017-10-15T00:00:00.000Z",
                  stop="2018-02-01T00:00:00.000Z", size=10., limit=100,
                  download_dir="/tmp/data"):
-        self.longitude = longitude
-        self.latitude = latitude
+        self.longitude = lon
+        self.latitude = lat
         self.start = start
         self.stop = stop
         self.size = size  # must be in meter
@@ -109,7 +113,7 @@ class PlanetPixel():
         
         item_ids = get_item_ids(client, geom1, start=self.start,
                                 stop=self.stop, limit=self.limit)
-        print("Clipping from {} items.".format(len(item_ids)))
+        #print("Clipping from {} items.".format(len(item_ids)))
 
         geom2 = get_geometry(self.longitude, self.latitude, 100*mysize)
         self._clip_request_json = self._get_clip_request(item_ids, geom2)
@@ -140,12 +144,9 @@ class PlanetPixel():
         return clip_request
 
     def get_timeseries(self):
-        from glob import glob
-        from gdal import Open
-        # Worst hack of the package:
-        images = glob('{}/*/*/*/*MS_clip.tif'.format(self.download_dir))
-        times = []
-        ratios = []
+        images = [str(pth) for pth in self._files.values()
+                  if str(pth).endswith('AnalyticMS_clip.tif')]
+        times, ratios = [], []
         for img in images:
             data = Open(img)
             ratio = get_median(data, "blue") / get_median(data, "red")
@@ -156,4 +157,10 @@ class PlanetPixel():
 
     def plot(self):
         time, ratio = self.get_timeseries()
-        pl.scatter(time, ratio)
+        sns.set_style("whitegrid")
+        sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 2.5})
+        pl.figure(figsize=(8, 4.5))
+        ax = pl.scatter(time, ratio, s=15, marker='o', color='black')
+        pl.ylabel("Blue / Red light ratio")
+        pl.gca().xaxis.set_major_locator(mdates.MonthLocator())
+        return ax

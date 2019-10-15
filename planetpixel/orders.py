@@ -40,7 +40,7 @@ def poll_for_success(order_url, auth, num_loops=50000):
         elif state in success_states:
             break
 
-        time.sleep(10)
+        time.sleep(100)
 
 
 def download_order(order_url, auth, destination="/tmp/data/", overwrite=False):
