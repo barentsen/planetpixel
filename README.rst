@@ -5,16 +5,30 @@ PlanetPixel
 
 *(Because API's don't have to be complicated!)*
 
-Purpose
+Summary
 -------
-*PlanetPixel* makes it fun and easy to plot the color of a single position on Earth as a function of time.  For example, you can use it to measure when a lake in Yosemite froze in the winter of 2017:
+*PlanetPixel* makes it fun and easy to plot the color of a single position on Earth as a function of time.  For example, you can use it to measure when Matthes lake in Yosemite froze in the winter of 2017:
+
+.. image:: https://github.com/barentsen/planetpixel/blob/master/demo/planetpixel-demo.png
+
+*PlanetPixel* was created at the first public Planet Labs Hack Day on October 14th, 2019, in San Francisco, out of frustration with Planet's standard (complicated) API!
+
+Installation
+------------
+
+.. code-block:: bash
+
+  python setup.py install
+
+
+Usage
+-----
 
 .. code-block:: python
 
   from planetpixel import PlanetPixel
   PlanetPixel(lon, lat).plot()
 
-*PlanetPixel* was created at the first public Planet Labs Hack Day on October 14th, 2019, in San Francisco, out of frustration with Planet's standard (complicated) API!
 
 Pre-requisites
 --------------
