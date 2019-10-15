@@ -21,7 +21,8 @@ def get_median(data, band='blue'):
     """Returns the median of a band in a Planet GeoTIFF."""
     band_idx = PLANET_BANDS[band]
     dn = data.GetRasterBand(band_idx).ReadAsArray()
-    return np.nanmedian(dn[dn > 0])
+    return dn[int(dn.shape[1]/2), int(dn.shape[0]/2)]
+    #return np.nanmedian(dn[dn > 0])
 
 
 def get_geometry(lon, lat, size):
@@ -115,7 +116,7 @@ class PlanetPixel():
                                 stop=self.stop, limit=self.limit)
         #print("Clipping from {} items.".format(len(item_ids)))
 
-        geom2 = get_geometry(self.longitude, self.latitude, 100*mysize)
+        geom2 = get_geometry(self.longitude, self.latitude, 20*mysize)
         self._clip_request_json = self._get_clip_request(item_ids, geom2)
        
         auth = HTTPBasicAuth(PL_API_KEY, '')
