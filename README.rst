@@ -19,4 +19,4 @@ Purpose
 Pre-requisites
 --------------
 
-You need to set the `PL_API_KEY` environment variable for this package to work.
+You need to set your Planet Labs API key as the ``PL_API_KEY`` environment variable for this package to work.
