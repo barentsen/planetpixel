@@ -31,6 +31,8 @@ Installation
 
   pip install planetpixel
 
+You also need to set your Planet Labs API key as the ``PL_API_KEY`` environment variable for this package to work.
+
 
 Usage
 -----
@@ -44,10 +46,4 @@ Usage
 Caveat
 ------
 
-Right now, the example above takes >10 minutes to run. 😬
-
-
-
-Pre-requisites
---------------
-You need to set your Planet Labs API key as the ``PL_API_KEY`` environment variable for this package to work.
+Right now, the example above takes 15+ minutes to run. 😬
