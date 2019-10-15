@@ -3,7 +3,7 @@ PlanetPixel
 
 **A simple API for retrieving time series color data using the Planet API.**
 
-*(Because API's don't have to be complicated!)*
+*(Because API's don't have to be complicated! 😬)*
 
 Summary
 -------
