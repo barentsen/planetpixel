@@ -21,7 +21,7 @@ We can study this in a quantitative way as follows:
 
 .. image:: https://github.com/barentsen/planetpixel/blob/master/demo/planetpixel-demo.png
 
-*PlanetPixel* was created at the first public Planet Labs Hack Day on October 14th, 2019, in San Francisco, out of frustration with Planet's standard (complicated) API!
+*PlanetPixel* was created at the first public Planet Labs Hack Day on October 14th, 2019, in San Francisco, to demonstrate that API's can be simple and fun!
 
 
 Installation
