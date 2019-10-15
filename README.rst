@@ -7,7 +7,7 @@ PlanetPixel
 
 Example
 -------
-*PlanetPixel* makes it fun and easy to plot the color of a single position on Earth as a function of time.  For example, you can use it to measure when Matthes lake in Yosemite froze in the winter of 2017:
+*PlanetPixel* makes it fun and easy to plot the color of a single position on Earth as a function of time.  For example, you can use it to study when Matthes lake in Yosemite National Park froze in the winter of 2017:
 
 .. image:: https://github.com/barentsen/planetpixel/blob/master/demo/lake1.png
    :width: 30%
