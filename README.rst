@@ -12,10 +12,9 @@ Example
 |pic1| |pic2|
 
 .. |pic1| image:: https://github.com/barentsen/planetpixel/blob/master/demo/lake1.png
-   :width: 35%
-
+   :width: 40%
 .. |pic2| image:: https://github.com/barentsen/planetpixel/blob/master/demo/lake2.png
-   :width: 35%
+   :width: 40%
 
 We can study this in a quantitative way as follows:
 
